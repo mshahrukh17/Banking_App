@@ -26,4 +26,21 @@ class MyText{
       color: Colors.grey
     );
   }
+
+   static TextStyle medium(){
+    return TextStyle(
+      fontSize: 16,
+      fontFamily: "medium",
+      color: Colors.black
+    );
+  }
+
+   static TextStyle regular(fontsize, color){
+    return TextStyle(
+      fontSize: fontsize,
+      fontFamily: "regular",
+      // fontWeight: FontWeight.bold,
+      color: color
+    );
+  }
 }

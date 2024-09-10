@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp(),));
+                    Navigator.pushNamed(context, '/signup');
                   },
                   child: Text("Sign in",
                   style: MyText.BoldTitle2(Color(0xfff0066FF), 12.0),

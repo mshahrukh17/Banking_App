@@ -77,7 +77,7 @@ class _SignUpState extends State<SignUp> {
             ),
             SizedBox(height: 50,),
             Center(child: MyButton(onpress: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+              Navigator.pushNamed(context, '/homepage');
             }, buttontext: "Sign In")),
             SizedBox(height: 30,),
             Center(child: Row(
@@ -88,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: Text("Sign Up",
                   style: MyText.BoldTitle2(Color(0xfff0066FF), 12.0),

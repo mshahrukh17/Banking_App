@@ -115,7 +115,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: MyButton(
             onpress: () {
               if (_currentPage == _buildPageContent().length - 1) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+                Navigator.pushNamed(context, '/login');
               } else {
                 _pageController.nextPage(
                     duration: Duration(milliseconds: 500),
