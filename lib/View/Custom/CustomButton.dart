@@ -5,7 +5,7 @@ import '../../Export/AllExport.dart';
 class MyButton extends StatelessWidget {
   final void Function() onpress;
   var buttontext;
- MyButton({super.key, required this.onpress, required this.buttontext});
+ MyButton({Key? key, required this.onpress, required this.buttontext}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

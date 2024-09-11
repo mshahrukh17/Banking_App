@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, file_names, prefer_const_constructors, use_full_hex_values_for_flutter_colors, non_constant_identifier_names
-
 import '../Export/AllExport.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -39,24 +37,34 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       required String title,
       required String description}) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(image, height: 200),
+        SizedBox(
+        height: MediaQuery.of(context).size.height * 0.1,
+      ),
+        FadeAnimation(
+          delay: 1,
+          child: Image.asset(image, height: 220)),
         const SizedBox(height: 80),
-        Text(
-          title,
-          style: MyText.BoldTitle2(Colors.black, 22.0),
-          textAlign: TextAlign.center,
-          maxLines: 2,
+        FadeAnimation(
+          delay: 1.8,
+          child: Text(
+            title,
+            style: MyText.BoldTitle2(Colors.black, 22.0),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+          ),
         ),
         SizedBox(height: 15),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Text(
-            description,
-            style: MyText.LightWeightTitle(14.0),
-            textAlign: TextAlign.center,
-            maxLines: 3,
+          child: FadeAnimation(
+            delay: 1.8,
+            child: Text(
+              description,
+              style: MyText.LightWeightTitle(14.0),
+              textAlign: TextAlign.center,
+              maxLines: 3,
+            ),
           ),
         ),
       ],
@@ -90,18 +98,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Widget _buildIndicator() {
     return Positioned(
-      bottom: 270,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          _buildPageContent().length,
-          (index) => Container(
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            width: _currentPage == index ? 25 : 6,
-            height: _currentPage == index ? 8 : 6,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: _currentPage == index ? Color(0xfff0066FF) : Colors.grey,
+      bottom: 110,
+      child: FadeAnimation(
+        delay: 2,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            _buildPageContent().length,
+            (index) => Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: _currentPage == index ? 25 : 6,
+              height: _currentPage == index ? 8 : 6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: _currentPage == index ? Color(0xfff0066FF) : Colors.grey,
+              ),
             ),
           ),
         ),
@@ -112,18 +123,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _buildNextButton() {
     return Positioned(
         bottom: 30,
-        child: MyButton(
-            onpress: () {
-              if (_currentPage == _buildPageContent().length - 1) {
-                Navigator.pushNamed(context, '/login');
-              } else {
-                _pageController.nextPage(
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeInOut);
-              }
-            },
-            buttontext: _currentPage == _buildPageContent().length - 1
-                ? "Get Started"
-                : "Next"));
+        child: FadeAnimation(
+          delay: 2.5,
+          child: MyButton(
+              onpress: () {
+                if (_currentPage == _buildPageContent().length - 1) {
+                  Navigator.pushNamed(context, '/login');
+                } else {
+                  _pageController.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut);
+                }
+              },
+              buttontext: _currentPage == _buildPageContent().length - 1
+                  ? "Get Started"
+                  : "Next"),
+        ));
   }
 }

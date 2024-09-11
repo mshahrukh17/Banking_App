@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -21,7 +21,10 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUp(),
+        '/navbar': (context) => const BottomNavBar(),
         '/homepage': (context) => const HomePage(),
+        '/stats': (context) => const Stats(),
+        '/profile': (context) => const Profile(),
       },
     );
   }

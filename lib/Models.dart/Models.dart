@@ -45,3 +45,24 @@ List Transactions = [
     "price":"- \$88"
   }
 ];
+
+var month = [
+  {
+    "name": "Oct"
+  },
+   {
+    "name": "Nov"
+  },
+   {
+    "name": "Dec"
+  },
+   {
+    "name": "Jan"
+  },
+   {
+    "name": "Feb"
+  },
+   {
+    "name": "Mar"
+  }
+];

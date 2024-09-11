@@ -1,7 +1,7 @@
 import '../Export/AllExport.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -19,7 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset("assets/images/logo.png"),
+        child: FadeAnimation(
+          delay: 1,
+          child: Image.asset("assets/images/logo.png")),
       ),
     );
   }
